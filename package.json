@@ -8,7 +8,7 @@
   "main": "index.js",
   "scripts": {
     "build": "npx tsc",
-    "start": "npx tsc && node dist/server.js",
+    "start": "npx tsc && node --env-file=.env dist/server.js",
     "dev": "nodemon --watch src --ext ts --exec \"npm run start\"",
     "test": "vitest run"
   },
