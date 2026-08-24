@@ -1,0 +1,35 @@
+name: Validate PR title
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  pull-requests: read
+
+jobs:
+  validate:
+    name: Validate title format
+    runs-on: ubuntu-latest
+    steps:
+      - name: Validate semantic PR title
+        uses: amannn/action-semantic-pull-request@v6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          types: |
+            feat
+            fix
+            chore
+            refactor
+            docs
+            test
+            style
+            perf
+            ci
+            build
+            revert
+          subjectPattern: ^[^A-Z].+$
+          subjectPatternError: >-
+            Use '<type>: <short imperative description>' with a lowercase
+            description, for example 'feat: add model query endpoint'.
