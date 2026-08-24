@@ -1,0 +1,25 @@
+{
+  "name": "social-copilot",
+  "version": "1.0.0",
+  "description": "LLM-powered social media manager",
+  "license": "ISC",
+  "author": "brauliopf",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "npx tsc && node dist/server.js",
+    "dev": "nodemon --watch src --ext ts --exec \"npm run start\""
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@tsconfig/node26": "^26.0.1",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "nodemon": "^3.1.14",
+    "typescript": "^7.0.2"
+  }
+}
